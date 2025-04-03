@@ -7,10 +7,10 @@ const app = express();
 
 // Configure CORS with specific options
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://bulk-email-sender-frontend.vercel.app/'],  // Allow your frontend origin
-    methods: ['POST', 'GET', 'OPTIONS'], // Allowed methods
-    allowedHeaders: ['Content-Type'], // Allowed headers
-    credentials: true // Allow credentials
+    origin: ['http://localhost:5173', 'https://bulk-email-sender-frontend.vercel.app'],
+    methods: ['POST', 'GET', 'OPTIONS'],
+    allowedHeaders: ['Content-Type'],
+    credentials: true
 }));
 
 
