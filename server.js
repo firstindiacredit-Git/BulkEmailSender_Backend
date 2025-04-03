@@ -16,6 +16,10 @@ app.use(cors({
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
+
 // API to send bulk emails
 app.post('/send-emails', async (req, res) => {
     const { emails, subject, message } = req.body;
