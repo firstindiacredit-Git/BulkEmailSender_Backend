@@ -6,12 +6,20 @@ const cors = require('cors');
 const app = express();
 
 // Configure CORS with specific options
-app.use(cors({
-    origin: ['http://localhost:5173', 'https://bulk-email-sender-frontend.vercel.app','https://bulkemail.pizeonfly.com'],
+// CORS options
+const corsOptions = {
+    origin: ['http://localhost:5173', 'https://bulk-email-sender-frontend.vercel.app', 'https://bulkemail.pizeonfly.com'],
     methods: ['POST', 'GET', 'OPTIONS'],
     allowedHeaders: ['Content-Type'],
-    credentials: true
-}));
+    credentials: true,
+    optionsSuccessStatus: 200 // <-- Important for some browsers
+};
+
+// Apply CORS globally
+app.use(cors(corsOptions));
+
+// Handle preflight requests
+app.options('*', cors(corsOptions));
 
 
 app.use(express.json());
