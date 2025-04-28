@@ -15,14 +15,14 @@ const corsOptions = {
     optionsSuccessStatus: 200 // <-- Important for some browsers
 };
 
+app.use(express.json());
 // Apply CORS globally
 app.use(cors(corsOptions));
 
 // Handle preflight requests
-app.options('*', cors(corsOptions));
+// app.options('*', cors(corsOptions));
 
 
-app.use(express.json());
 
 app.get('/hello', (req, res) => {
     res.send('Hello World');
@@ -46,5 +46,3 @@ app.post('/send-emails', async (req, res) => {
 });
 
 app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
-
-
